@@ -4,12 +4,10 @@
 
 int main()
 {
-  float m[3][3], u[3][3], s[3][3], v_t[3][3];
-  read_m(m);
-  svd(u, s, v_t, m);
-  print_m(u);
-  print_m(s);
-  print_m(v_t);
+  double m[3][3], eigen[3];
+  read_m_d(m);
+  eigen_values_d(eigen, m);
+  print_v_msg_d(eigen, "Eigen: ");
 
   return 0;
 }
