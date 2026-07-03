@@ -1,7 +1,7 @@
 #include "../include/algo.h"
 #include <string.h>
 
-static void triangulated_b(float result[restrict 3][3], const float src[restrict 3][3], float new_b[restrict 3], const float b[restrict 3])
+static void triangulated_b(float result[3][3], const float src[3][3], float new_b[3], const float b[3])
 {
   memcpy(result, src, sizeof(float) * 3);
   new_b[0] = b[0];

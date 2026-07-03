@@ -3,7 +3,7 @@
 
 #define EPS_D 1e-14
 
-void lu(float l[restrict 3][3], float u[restrict 3][3], const float src[restrict 3][3])
+void lu(float l[3][3], float u[3][3], const float src[3][3])
 {
   l[0][1] = l[0][2] = l[1][2] = u[1][0] = u[2][0] = u[2][1] = 0.f;
   l[0][0] = l[1][1] = l[2][2] = 1.f;

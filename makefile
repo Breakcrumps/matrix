@@ -6,9 +6,13 @@ CFLAGS = -O3 -march=x86-64-v3 -flto=auto -fno-math-errno -fno-trapping-math
 
 TARGET = matrix
 
-all: src/io.c src/decomps.c src/det.c src/eigen.c src/modified_mats.c src/ops.c src/rot.c src/solvers.c matrix.c
+.PHONY: launch all clean o
+all: $(TARGET)
+launch: $(TARGET).exe
+	.\$(TARGET)
+$(TARGET): src/io.c src/decomps.c src/det.c src/eigen.c src/modified_mats.c src/ops.c src/rot.c src/solvers.c main.c
 	$(CC) $(CFLAGS) -fwhole-program $^ -o $(TARGET)
-sep: build/io.o build/decomps.o build/det.o build/eigen.o build/modified_mats.o build/ops.o build/rot.o build/solvers.o matrix.c
+o: build/io.o build/decomps.o build/det.o build/eigen.o build/modified_mats.o build/ops.o build/rot.o build/solvers.o main.c
 	$(CC) $(CFLAGS) -fwhole-program $^ -o $(TARGET)
 build/algo.o: src/algo.c
 	$(CC) -c $(CFLAGS) $< -o build/algo.o
