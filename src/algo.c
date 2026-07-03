@@ -570,22 +570,22 @@ void svd(float u[3][3], float s[3][3], float v_t[3][3], const float src[3][3])
 
   double u1[3], u2[3], u3[3];
   mult_m_v_d(u1, src_d, v1);
-  scale_v_d(u1, 1. / sigmas[0]);
+  scaled_v_d(u1, 1. / sigmas[0]);
 
   if (sigmas[1] > EPS_D)
   {
     mult_m_v_d(u2, src_d, v2);
-    scale_v_d(u2, 1. / sigmas[1]);
+    scaled_v_d(u2, 1. / sigmas[1]);
   
     if (sigmas[2] > EPS_D)
     {
       mult_m_v_d(u3, src_d, v3);
-      scale_v_d(u3, 1. / sigmas[2]);
+      scaled_v_d(u3, 1. / sigmas[2]);
     }
     else
     {
       cross_product_d(u3, u1, u2);
-      scale_v_d(u3, 1. / len_d(u3));
+      scaled_v_d(u3, 1. / len_d(u3));
     }
   }
   else
@@ -596,10 +596,10 @@ void svd(float u[3][3], float s[3][3], float v_t[3][3], const float src[3][3])
     else
       t[1] = 1.;
     cross_product_d(u2, u1, t);
-    scale_v_d(u2, 1. / len_d(u2));
+    scaled_v_d(u2, 1. / len_d(u2));
 
     cross_product_d(u3, u1, u2);
-    scale_v_d(u3, 1. / len_d(u3));
+    scaled_v_d(u3, 1. / len_d(u3));
   }
 
   u[0][0] = u1[0], u[1][0] = u1[1], u[2][0] = u1[2];

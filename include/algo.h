@@ -28,7 +28,7 @@ static inline void normalise_d(double v[3])
   v[0] *= div, v[1] *= div, v[2] *= div;
 }
 
-static inline void scale_v_d(double v[3], double scale)
+static inline void scaled_v_d(double v[3], double scale)
 {
   v[0] *= scale, v[1] *= scale, v[2] *= scale;
 }
@@ -47,11 +47,11 @@ void inverse(float result[restrict 3][3], const float src[restrict 3][3]);
 void scaled_m(float result[restrict 3][3], const float m[restrict 3][3], float scale);
 void triangulated(float result[restrict 3][3], const float src[restrict 3][3]);
 
-void mult_m_v(float result[3], const float m[3][3], const float v[3]);
-void mult_m_v_d(double result[3], const double m[3][3], const double v[3]);
 void outer_product(float result[3][3], const float left[3], const float right[3]);
 void cross_product(float result[3], const float left[3], const float right[3]);
 void cross_product_d(double result[3], const double left[3], const double right[3]);
+void mult_m_v(float result[3], const float m[3][3], const float v[3]);
+void mult_m_v_d(double result[3], const double m[3][3], const double v[3]);
 void mult_m_m_3x3(float result[restrict 3][3], const float left[restrict 3][3], const float right[restrict 3][3]);
 void mult_m_m(
   int left_rows, int left_cols, int right_cols,

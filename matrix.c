@@ -4,10 +4,11 @@
 
 int main()
 {
-  double m[3][3], eigen[3];
-  read_m_d(m);
-  eigen_values_d(eigen, m);
-  print_v_msg_d(eigen, "Eigen: ");
-
+  float u[3][3], s[3][3], v_t[3][3], m[3][3];
+  read_m_msg(m, "Input matrix:");
+  svd(u, s, v_t, m);
+  print_m_msg(u, "U:");
+  print_m_msg(s, "Sigma:");
+  print_m_msg(v_t, "V_T:");
   return 0;
 }
